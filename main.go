@@ -105,8 +105,8 @@ func main() {
 	}
 
 	http.HandleFunc("/count", configHandler.handleCount)
-	slog.Info("Server started on :" + port)
-	res := http.ListenAndServe(":"+port, nil)
+	slog.Info("Server started on " + port)
+	res := http.ListenAndServe("localhost:"+port, nil)
 
 	if res != nil {
 		slog.Error("Error starting server", "error", res.Error())
