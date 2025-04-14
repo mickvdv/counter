@@ -99,13 +99,13 @@ func main() {
 
 	configHandler := initConfig()
 
-	var port = os.Getenv("COUNTER_PORT")
+	var port = os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
 	}
 
 	http.HandleFunc("/count", configHandler.handleCount)
-	slog.Info("Server started on " + port)
+	slog.Info("Server starting on " + port)
 	res := http.ListenAndServe(":"+port, nil)
 
 	if res != nil {
